@@ -39,18 +39,8 @@ Test The Application :
   1. 100 Mock User Records.
   2. 150 Random Mock visit to the users records  with various dates up to 20 day before the    execution time randomly.
 4. In your browser address bar  , type : **http://localhost:8080/users/visitors/1** , which will show you list of the visitors for the user with Id=1 , it will show only Ten NON-expired results in the following format :  
-		<sub>
-		Log[498,User (1),User (76),2013-10-12 06:58:45.372,false] 
-		Log[466,User (1),User (40),2013-10-12 06:58:45.371,false] 
-		Log[448,User (1),User (22),2013-10-12 06:58:45.371,false] 
-		Log[464,User (1),User (13),2013-10-12 06:58:45.371,false] 
-		Log[432,User (1),User (45),2013-10-12 06:58:45.37,false] 
-		Log[364,User (1),User (59),2013-10-12 06:58:45.369,false] 
-		Log[383,User (1),User (49),2013-10-12 06:58:45.369,false] 
-		Log[393,User (1),User (58),2013-10-12 06:58:45.369,false] 
-		Log[344,User (1),User (24),2013-10-12 06:58:45.368,false] 
-		Log[284,User (1),User (31),2013-10-12 06:58:45.367,false]
-		</sub> 
+		*Log[498,User (1),User (76),2013-10-12 06:58:45.372,false]* 
+
 Where the first number is the Log Id, the second number the visited user id , the third the visitor user id , then the visit time stamp , then the outDatedFlag.
 5. In your browser address bar  , type : **http://localhost:8080/users/all-visitors/1** , where this will show the full list of the user visitors with the above informations , for debugging and testing purposes.
 

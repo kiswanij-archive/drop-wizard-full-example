@@ -30,7 +30,7 @@ Contains the information for the profile visits
 
 ** UML Class diagram:
 ![alt tag](https://github.com/kiswanij/drop-wizard-full-example/blob/master/design/class-diagram.PNG)
+
 Enjoy!
 
 *Jalal*
-=======

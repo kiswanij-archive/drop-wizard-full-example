@@ -28,6 +28,8 @@ Contains the information for the profile visits
 - Visitor_user_id: The visitor user id
 - Visit_time_stamp: The time stamp of the visit (Date and Time)
 
+** UML Class diagram:
+![alt tag](https://github.com/kiswanij/drop-wizard-full-example/blob/master/design/class-diagram.PNG)
 Enjoy!
 
 *Jalal*

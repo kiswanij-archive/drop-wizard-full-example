@@ -1,16 +1,16 @@
-# drop-wizard-full-example
+# Dropwizard full example
 Dropwizard full example to include all the required concepts of dropwizard , 
 it could be used as the starter template  for your next micro-service project .
 
-##Services Description:
+##Example Services Description:
 This Solutions contains the following exposable services : 
 1- Users Service 
 2- Admin Services
 3- Test Service
 ![alt tag](https://github.com/kiswanij/drop-wizard-full-example/blob/master/design/services.PNG)
-##Architecture:
+##Example Architecture:
 ![alt tag](https://github.com/kiswanij/drop-wizard-full-example/blob/master/design/archiecture.PNG)
-##Database Design: 
+##Example Database Design: 
  Below is the database ER diagram for the database tables structure, note that the "tc" prefix is refers to True-Caller.
 ![alt tag](https://github.com/kiswanij/drop-wizard-full-example/blob/master/design/erd.PNG)
 
@@ -28,3 +28,5 @@ Contains the information for the profile visits
 - Visitor_user_id: The visitor user id
 - Visit_time_stamp: The time stamp of the visit (Date and Time)
 
+Enjoy!
+Jalal

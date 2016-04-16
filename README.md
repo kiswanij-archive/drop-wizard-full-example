@@ -33,4 +33,8 @@ Contains the information for the profile visits
 
 Enjoy!
 
+<<<<<<< HEAD
 *Jalal*
+=======
+*Jalal*
+>>>>>>> refs/remotes/Github/master

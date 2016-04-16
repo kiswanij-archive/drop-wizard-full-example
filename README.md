@@ -7,12 +7,12 @@ This Solutions contains the following exposable services :
 1- Users Service 
 2- Admin Services
 3- Test Service
-![alt tag](https://github.com/kiswanij/drop-wizard-full-example/design/services.PNG)
+![alt tag](https://github.com/kiswanij/drop-wizard-full-example/blob/master/design/services.PNG)
 ##Architecture:
-![alt tag](https://github.com/kiswanij/drop-wizard-full-example/design/archiecture.PNG)
+![alt tag](https://github.com/kiswanij/drop-wizard-full-example/blob/master/design/archiecture.PNG)
 ##Database Design: 
  Below is the database ER diagram for the database tables structure, note that the "tc" prefix is refers to True-Caller.
-![alt tag](https://github.com/kiswanij/drop-wizard-full-example/design/erd.PNG)
+![alt tag](https://github.com/kiswanij/drop-wizard-full-example/blob/master/design/erd.PNG)
 
 **Table	tc_users**
 Contains the information of  the users (Visitors)

@@ -38,7 +38,7 @@ Test The Application :
 3. In your browser address bar , type : **http://localhost:8080/test/create/users/100/20/150** , this will cause to create : 
   1. 100 Mock User Records.
   2. 150 Random Mock visit to the users records  with various dates up to 20 day before the    execution time randomly.
-4. In your browser address bar  , type : **http://localhost:8080/users/visitors/1** , which will show you list of the visitors for the user with Id=1 , it will show only Ten NON-expired results in the following format : 
+4. In your browser address bar  , type : **http://localhost:8080/users/visitors/1** , which will show you list of the visitors for the user with Id=1 , it will show only Ten NON-expired results in the following format :  
 		Log[498,User (1),User (76),2013-10-12 06:58:45.372,false] 
 		Log[466,User (1),User (40),2013-10-12 06:58:45.371,false] 
 		Log[448,User (1),User (22),2013-10-12 06:58:45.371,false] 

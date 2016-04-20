@@ -30,7 +30,7 @@ import org.skife.jdbi.v2.Handle;
  *
  */
 public class SchemaBuilder {
-	
+
 	/** Name of the file contains the structor creation script. */
 	public static String CREATE_SCRIPT_FILE_NAME = "/create-db.sql";
 

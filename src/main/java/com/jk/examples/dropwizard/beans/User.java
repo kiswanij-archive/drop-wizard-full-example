@@ -31,7 +31,7 @@ import org.skife.jdbi.v2.tweak.ResultSetMapper;
  *
  */
 public class User implements ResultSetMapper<User> {
-	
+
 	/** Id field. */
 	private int id;
 

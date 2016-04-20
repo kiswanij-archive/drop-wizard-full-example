@@ -34,7 +34,7 @@ import com.jk.examples.dropwizard.util.LocalRegistry;
  *
  */
 public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
-	
+
 	/** Id field. */
 	private int id;
 

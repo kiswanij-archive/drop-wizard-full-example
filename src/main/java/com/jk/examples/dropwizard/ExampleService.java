@@ -31,7 +31,7 @@ import com.yammer.dropwizard.jdbi.DBIFactory;
 
 /**
  * This is the kitchen where every thing is cooked up and prepared.
- * 
+ *
  * @author Jalal Kiswani
  *
  */

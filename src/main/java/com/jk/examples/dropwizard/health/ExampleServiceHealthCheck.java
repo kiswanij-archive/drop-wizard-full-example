@@ -33,7 +33,9 @@ public class ExampleServiceHealthCheck extends HealthCheck {
 		super("Users Health Check");
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.yammer.metrics.core.HealthCheck#check()
 	 */
 	@Override

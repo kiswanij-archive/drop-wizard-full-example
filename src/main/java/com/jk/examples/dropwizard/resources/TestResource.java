@@ -45,7 +45,7 @@ import com.yammer.metrics.annotation.Timed;
  */
 @Path("/test")
 public class TestResource {
-	
+
 	/**
 	 * This method is very usefull for the testing , it fill the tc_users table
 	 * by {users_count} records , then it create {visits_per_user} for {days}.

@@ -27,7 +27,7 @@ import com.yammer.dropwizard.db.DatabaseConfiguration;
  *
  */
 public class ExampleConfigurations extends Configuration {
-	
+
 	/** Database Configuration instance. */
 	private final DatabaseConfiguration database = new DatabaseConfiguration();
 

@@ -31,7 +31,7 @@ import com.jk.examples.dropwizard.util.SchemaBuilder;
  * Schema.
  *
  * @author Jalal Kiswani
- * 
+ *
  *         Note : Some method shold be called as POST ot GET , but i have made
  *         all the exposed services in this Resource called using HTTP Get
  *         method for simpler testing prupose by hitting browser URL only.
@@ -39,7 +39,7 @@ import com.jk.examples.dropwizard.util.SchemaBuilder;
 @Path("/admin")
 @Produces(MediaType.APPLICATION_JSON)
 public class AdminResource {
-	
+
 	/**
 	 * instance Schema Builder class which is used to manage the databse
 	 * structor functianlity.

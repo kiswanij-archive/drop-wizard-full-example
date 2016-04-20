@@ -39,7 +39,7 @@ import com.yammer.metrics.annotation.Timed;
  * all-visitors/{user}.
  *
  * @author Jalal Kiswani
- * 
+ *
  *         Note : Some method shold be called as POST ot GET , but i have made
  *         all the exposed services in this Resource called using HTTP Get
  *         method for simpler testing prupose by hitting browser URL only.

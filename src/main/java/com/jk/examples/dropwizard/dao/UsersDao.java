@@ -29,7 +29,7 @@ import com.jk.examples.dropwizard.beans.UserVisitLog;
  * This class is the DataBase handler for the Users and UserVisitsLog beans.
  * This class is currently handling all the required method to deal with
  * tc_users & tx_visits_log table in the Database.
- * 
+ *
  * @author Jalal Kiswani
  *
  */

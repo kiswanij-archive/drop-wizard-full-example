@@ -35,7 +35,7 @@ import com.jk.examples.dropwizard.util.LocalRegistry;
  *
  */
 public class UsersFacade {
-	
+
 	/** Singleton instance of this class. */
 	private static UsersFacade instance;
 

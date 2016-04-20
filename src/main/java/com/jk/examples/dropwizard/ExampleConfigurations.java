@@ -27,60 +27,53 @@ import com.yammer.dropwizard.db.DatabaseConfiguration;
  *
  */
 public class ExampleConfigurations extends Configuration {
-	/**
-	 * Database Configuration instance
-	 */
+	
+	/** Database Configuration instance. */
 	private final DatabaseConfiguration database = new DatabaseConfiguration();
 
-	/**
-	 * The maximum number of days to consider the visit outDated
-	 */
+	/** The maximum number of days to consider the visit outDated. */
 	@JsonProperty
 	private final int visitListMaxDays = 10;
 
-	/**
-	 * Number of threads in the UsersFacade to records the visits log
-	 */
+	/** Number of threads in the UsersFacade to records the visits log. */
 	@JsonProperty
 	private final int databaseThreadsPoolSize = 5;
 
-	/**
-	 * The seprator used in the format visits list
-	 */
+	/** The seprator used in the format visits list. */
 	@JsonProperty
 	private final String outputSeprator = System.getProperty("line.separator");
 
 	/**
-	 * getter for database configuration
+	 * getter for database configuration.
 	 *
-	 * @return
+	 * @return the database
 	 */
 	public DatabaseConfiguration getDatabase() {
 		return this.database;
 	}
 
 	/**
-	 * Getter for DatabseThreadPoolSize
+	 * Getter for DatabseThreadPoolSize.
 	 *
-	 * @return
+	 * @return the database threads pool size
 	 */
 	public int getDatabaseThreadsPoolSize() {
 		return this.databaseThreadsPoolSize;
 	}
 
 	/**
-	 * Gettre for outputSepartor
+	 * Gettre for outputSepartor.
 	 *
-	 * @return
+	 * @return the output seprator
 	 */
 	public String getOutputSeprator() {
 		return this.outputSeprator;
 	}
 
 	/**
-	 * Getter for visitListMaxDays
+	 * Getter for visitListMaxDays.
 	 *
-	 * @return
+	 * @return the visit list max days
 	 */
 	public int getVisitListMaxDays() {
 		return this.visitListMaxDays;

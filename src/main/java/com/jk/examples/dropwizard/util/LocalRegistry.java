@@ -25,77 +25,73 @@ import com.yammer.dropwizard.config.Environment;
  * initilized by the AssignmentService , which is: 1- DBI : JDBI database main
  * object which is initialized using YAML config file by the Service 2-
  * Environment : environment variable 3- Configurations :which is instance of
- * YAML configuration
+ * YAML configuration.
  *
  * @author Jalal Kiswani
- *
  */
 public class LocalRegistry {
 
-	/**
-	 * instance of DBI
-	 */
+	/** instance of DBI. */
 	private static DBI dbi;
 
-	/**
-	 * Instance of Environment
-	 */
+	/** Instance of Environment. */
 	private static Environment environment;
 
-	/**
-	 * Instance of service Configuratoins
-	 */
+	/** Instance of service Configuratoins. */
 	private static ExampleConfigurations configurations;
 
 	/**
-	 * Getter for configuration variable
+	 * Getter for configuration variable.
 	 *
-	 * @return
+	 * @return the configurations
 	 */
 	public static ExampleConfigurations getConfigurations() {
 		return LocalRegistry.configurations;
 	}
 
 	/**
-	 * Getter for DBI variable
+	 * Getter for DBI variable.
 	 *
-	 * @return
+	 * @return the dbi
 	 */
 	public static DBI getDbi() {
 		return LocalRegistry.dbi;
 	}
 
 	/**
-	 * Getter for envionment variable
+	 * Getter for envionment variable.
 	 *
-	 * @return
+	 * @return the environment
 	 */
 	public static Environment getEnvironment() {
 		return LocalRegistry.environment;
 	}
 
 	/**
-	 * Setter for Configuration variable
+	 * Setter for Configuration variable.
 	 *
 	 * @param configurations
+	 *            the new configurations
 	 */
 	public static void setConfigurations(final ExampleConfigurations configurations) {
 		LocalRegistry.configurations = configurations;
 	}
 
 	/**
-	 * Setter for DBU variable
+	 * Setter for DBU variable.
 	 *
 	 * @param dbi
+	 *            the new dbi
 	 */
 	public static void setDbi(final DBI dbi) {
 		LocalRegistry.dbi = dbi;
 	}
 
 	/**
-	 * Setter for envionment variable
+	 * Setter for envionment variable.
 	 *
 	 * @param environment
+	 *            the new environment
 	 */
 	public static void setEnvironment(final Environment environment) {
 		LocalRegistry.environment = environment;

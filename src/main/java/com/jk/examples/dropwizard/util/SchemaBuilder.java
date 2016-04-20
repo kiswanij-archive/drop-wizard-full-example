@@ -30,30 +30,24 @@ import org.skife.jdbi.v2.Handle;
  *
  */
 public class SchemaBuilder {
-	/**
-	 * Name of the file contains the structor creation script
-	 */
+	
+	/** Name of the file contains the structor creation script. */
 	public static String CREATE_SCRIPT_FILE_NAME = "/create-db.sql";
 
-	/**
-	 * Name of the file contains the structor drop script
-	 */
+	/** Name of the file contains the structor drop script. */
 	public static String DROP_SCRIPT_FILE_NAME = "/drop-db.sql";
 
-	/**
-	 * Actual Schema creation script
-	 */
+	/** Actual Schema creation script. */
 	private final String schemaCreationScript;
 
-	/**
-	 * Actual schema dropp script
-	 */
+	/** Actual schema dropp script. */
 	private final String schemaDroppScript;
 
 	/**
-	 * Default constructor which load the actual craete and drop script
+	 * Default constructor which load the actual craete and drop script.
 	 *
 	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	public SchemaBuilder() throws IOException {
 		this.schemaCreationScript = FilesUtil.readResourceFile(SchemaBuilder.CREATE_SCRIPT_FILE_NAME);
@@ -61,7 +55,7 @@ public class SchemaBuilder {
 	}
 
 	/**
-	 * execute the schemaCreationScript using JDBI library
+	 * execute the schemaCreationScript using JDBI library.
 	 */
 	public void createTables() {
 		final DBI dbi = LocalRegistry.getDbi();
@@ -74,7 +68,7 @@ public class SchemaBuilder {
 	}
 
 	/**
-	 * execute the schemaDroppScript using JDBI library
+	 * execute the schemaDroppScript using JDBI library.
 	 */
 	public void dropTables() {
 		final DBI dbi = LocalRegistry.getDbi();

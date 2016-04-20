@@ -38,10 +38,12 @@ import com.yammer.dropwizard.jdbi.DBIFactory;
 public class ExampleService extends Service<ExampleConfigurations> {
 
 	/**
-	 * Main Method to start the application
-	 * 
+	 * Main Method to start the application.
+	 *
 	 * @param args
+	 *            the arguments
 	 * @throws Exception
+	 *             the exception
 	 */
 	public static void main(final String[] args) throws Exception {
 		new ExampleService().run(args);
@@ -49,7 +51,10 @@ public class ExampleService extends Service<ExampleConfigurations> {
 
 	/**
 	 * This method is the called in the Service bootstrap phase , we use it only
-	 * to set the service name
+	 * to set the service name.
+	 *
+	 * @param bootstrap
+	 *            the bootstrap
 	 */
 	@Override
 	public void initialize(final Bootstrap<ExampleConfigurations> bootstrap) {
@@ -57,11 +62,14 @@ public class ExampleService extends Service<ExampleConfigurations> {
 	}
 
 	/**
-	 * Init the local registry and the JDBI mappers
-	 * 
+	 * Init the local registry and the JDBI mappers.
+	 *
 	 * @param configuration
+	 *            the configuration
 	 * @param environment
+	 *            the environment
 	 * @throws ClassNotFoundException
+	 *             the class not found exception
 	 */
 	private void register(final ExampleConfigurations configuration, final Environment environment)
 			throws ClassNotFoundException {
@@ -78,7 +86,14 @@ public class ExampleService extends Service<ExampleConfigurations> {
 
 	/**
 	 * The service startup method , we use it register the resources , and to
-	 * init the LocalRegistry
+	 * init the LocalRegistry.
+	 *
+	 * @param configuration
+	 *            the configuration
+	 * @param environment
+	 *            the environment
+	 * @throws Exception
+	 *             the exception
 	 */
 	@Override
 	public void run(final ExampleConfigurations configuration, final Environment environment) throws Exception {

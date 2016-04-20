@@ -31,36 +31,36 @@ import org.skife.jdbi.v2.tweak.ResultSetMapper;
  *
  */
 public class User implements ResultSetMapper<User> {
-	/**
-	 * Id field
-	 */
+	
+	/** Id field. */
 	private int id;
 
-	/**
-	 * Name field
-	 */
+	/** Name field. */
 	private String name;
 
 	/**
-	 * Default Constructor
+	 * Default Constructor.
 	 */
 	public User() {
 	}
 
 	/**
-	 * Constructor with Id parameter
-	 * 
+	 * Constructor with Id parameter.
+	 *
 	 * @param id
+	 *            the id
 	 */
 	public User(final int id) {
 		setId(id);
 	}
 
 	/**
-	 * Constructor that take id and name as paramters
-	 * 
+	 * Constructor that take id and name as paramters.
+	 *
 	 * @param id
+	 *            the id
 	 * @param name
+	 *            the name
 	 */
 	public User(final int id, final String name) {
 		setId(id);
@@ -68,34 +68,45 @@ public class User implements ResultSetMapper<User> {
 	}
 
 	/**
-	 * Constructor with name parameter
-	 * 
+	 * Constructor with name parameter.
+	 *
 	 * @param name
+	 *            the name
 	 */
 	public User(final String name) {
 		this.name = name;
 	}
 
 	/**
-	 * Getter for the ID field
-	 * 
-	 * @return
+	 * Getter for the ID field.
+	 *
+	 * @return the id
 	 */
 	public int getId() {
 		return this.id;
 	}
 
 	/**
-	 * Getter for the Name field
-	 * 
-	 * @return
+	 * Getter for the Name field.
+	 *
+	 * @return the name
 	 */
 	public String getName() {
 		return this.name;
 	}
 
 	/**
-	 * Map method to be used by the JDBI library
+	 * Map method to be used by the JDBI library.
+	 *
+	 * @param i
+	 *            the i
+	 * @param rs
+	 *            the rs
+	 * @param context
+	 *            the context
+	 * @return the user
+	 * @throws SQLException
+	 *             the SQL exception
 	 */
 	public User map(final int i, final ResultSet rs, final StatementContext context) throws SQLException {
 		final User user = new User();
@@ -105,18 +116,20 @@ public class User implements ResultSetMapper<User> {
 	}
 
 	/**
-	 * Setter for the ID field
-	 * 
+	 * Setter for the ID field.
+	 *
 	 * @param id
+	 *            the new id
 	 */
 	public void setId(final int id) {
 		this.id = id;
 	}
 
 	/**
-	 * setter for the Name field
-	 * 
+	 * setter for the Name field.
+	 *
 	 * @param name
+	 *            the new name
 	 */
 	public void setName(final String name) {
 		this.name = name;
@@ -124,7 +137,9 @@ public class User implements ResultSetMapper<User> {
 
 	/**
 	 * Create String represntatoin for this instance , which will be in
-	 * "User ({id})" format
+	 * "User ({id})" format.
+	 *
+	 * @return the string
 	 */
 	@Override
 	public String toString() {

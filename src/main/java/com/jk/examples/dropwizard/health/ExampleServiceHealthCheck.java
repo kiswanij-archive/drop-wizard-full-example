@@ -20,20 +20,22 @@ import com.yammer.metrics.core.HealthCheck;
 /**
  * HealthCheck implmenetation based on DropWhizard recommandation , howvere ,
  * this implementation is still empty , and to be completed in the future if
- * needed
- * 
- * @author Jalal Kiswani
+ * needed.
  *
+ * @author Jalal Kiswani
  */
 public class ExampleServiceHealthCheck extends HealthCheck {
 
 	/**
-	 * Default Constrcutor
+	 * Default Constrcutor.
 	 */
 	public ExampleServiceHealthCheck() {
 		super("Users Health Check");
 	}
 
+	/* (non-Javadoc)
+	 * @see com.yammer.metrics.core.HealthCheck#check()
+	 */
 	@Override
 	protected Result check() throws Exception {
 		// TODO : complete the health checks

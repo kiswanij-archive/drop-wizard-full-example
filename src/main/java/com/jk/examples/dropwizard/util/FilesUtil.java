@@ -21,19 +21,20 @@ import java.io.InputStream;
 import org.apache.commons.io.IOUtils;
 
 /**
- * Utility methods to deal with Files
- * 
- * @author Jalal
+ * Utility methods to deal with Files.
  *
+ * @author Jalal
  */
 public class FilesUtil {
 
 	/**
-	 * Read files contents as string using Apache IO library,
-	 * 
+	 * Read files contents as string using Apache IO library,.
+	 *
 	 * @param fileName
-	 * @return
+	 *            the file name
+	 * @return the string
 	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	public static String readResourceFile(final String fileName) throws IOException {
 		InputStream in = null;

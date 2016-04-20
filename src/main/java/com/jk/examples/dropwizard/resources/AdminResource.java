@@ -28,10 +28,10 @@ import com.jk.examples.dropwizard.util.SchemaBuilder;
 /**
  * This service is used for Administration purposes , it contains the following
  * actoins : 1- Create Database Schema 2- Drop Database Schema 3- Clean Database
- * Schema
+ * Schema.
  *
  * @author Jalal Kiswani
- *
+ * 
  *         Note : Some method shold be called as POST ot GET , but i have made
  *         all the exposed services in this Resource called using HTTP Get
  *         method for simpler testing prupose by hitting browser URL only.
@@ -39,16 +39,18 @@ import com.jk.examples.dropwizard.util.SchemaBuilder;
 @Path("/admin")
 @Produces(MediaType.APPLICATION_JSON)
 public class AdminResource {
+	
 	/**
 	 * instance Schema Builder class which is used to manage the databse
-	 * structor functianlity
+	 * structor functianlity.
 	 */
 	private final SchemaBuilder builder;
 
 	/**
-	 * Default Constructor
-	 * 
+	 * Default Constructor.
+	 *
 	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
 	 */
 	public AdminResource() throws IOException {
 		this.builder = new SchemaBuilder();
@@ -56,9 +58,9 @@ public class AdminResource {
 
 	/**
 	 * Clean the database by calling the dropTables method followed by
-	 * createDatabase method
-	 * 
-	 * @return
+	 * createDatabase method.
+	 *
+	 * @return the string
 	 */
 	@Path("db/clean")
 	@GET
@@ -71,9 +73,9 @@ public class AdminResource {
 	}
 
 	/**
-	 * Service to create the In-Memory database structor
-	 * 
-	 * @return
+	 * Service to create the In-Memory database structor.
+	 *
+	 * @return the string
 	 */
 	@Path("db/create")
 	@GET
@@ -83,9 +85,9 @@ public class AdminResource {
 	}
 
 	/**
-	 * Service to drop the Tables if exists
-	 * 
-	 * @return
+	 * Service to drop the Tables if exists.
+	 *
+	 * @return the string
 	 */
 	@Path("db/drop")
 	@GET

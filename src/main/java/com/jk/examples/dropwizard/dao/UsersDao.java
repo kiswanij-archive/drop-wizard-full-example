@@ -36,34 +36,37 @@ import com.jk.examples.dropwizard.beans.UserVisitLog;
 public interface UsersDao {
 
 	/**
-	 * Add new user to tc_users table
-	 * 
+	 * Add new user to tc_users table.
+	 *
 	 * @param user
+	 *            the user
 	 */
 	@SqlUpdate("INSERT  INTO tc_users(name) VALUES (:name)")
 	public void addUser(@BindBean User user);
 
 	/**
 	 * Close the database resource , this method is automatically called by the
-	 * JDBI library
+	 * JDBI library.
 	 */
 	public void close();
 
 	/**
-	 * Find user object by the given user id
-	 * 
+	 * Find user object by the given user id.
+	 *
 	 * @param id
-	 * @return
+	 *            the id
+	 * @return the user
 	 */
 	@SqlQuery("SELECT * FROM tc_users WHERE id=:id")
 	public User findUser(@Bind int id);
 
 	/**
 	 * Get all the visitors record to given user ordered descending by visit
-	 * date
-	 * 
+	 * date.
+	 *
 	 * @param id
-	 * @return
+	 *            the id
+	 * @return the all visitors
 	 */
 	@SqlQuery("SELECT * FROM  tc_visits_log WHERE visited_user_id=:id ORDER BY visit_time_stamp DESC")
 	public List<UserVisitLog> getAllVisitors(@Bind("id") int id);
@@ -72,17 +75,19 @@ public interface UsersDao {
 	 * Get the last 10 visitors for the user with given id. This method is
 	 * return the top 10 results from the database after it sort the results by
 	 * date descending
-	 * 
+	 *
 	 * @param id
-	 * @return
+	 *            the id
+	 * @return the last visitors
 	 */
 	@SqlQuery("SELECT * FROM  tc_visits_log WHERE visited_user_id=:id ORDER BY visit_time_stamp DESC LIMIT 10")
 	public List<UserVisitLog> getLastVisitors(@Bind("id") int id);
 
 	/**
-	 * Add new visit record to the tc_visits_log table
-	 * 
+	 * Add new visit record to the tc_visits_log table.
+	 *
 	 * @param log
+	 *            the log
 	 */
 	@SqlUpdate("INSERT INTO tc_visits_log(visitor_user_id,visited_user_id,visit_time_stamp) VALUES (:visitorUserId,:visitedUserId,:timeStamp)")
 	public void recordVisitLog(@BindBean UserVisitLog log);

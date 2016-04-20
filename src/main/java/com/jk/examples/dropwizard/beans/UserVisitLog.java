@@ -34,38 +34,34 @@ import com.jk.examples.dropwizard.util.LocalRegistry;
  *
  */
 public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
-	/**
-	 * Id field
-	 */
+	
+	/** Id field. */
 	private int id;
 
-	/**
-	 * Visitor field
-	 */
+	/** Visitor field. */
 	private User visitor;
 
-	/**
-	 * Visited User field
-	 */
+	/** Visited User field. */
 	private User visitedUser;
 
-	/**
-	 * Visit time stamp (Date & Time)
-	 */
+	/** Visit time stamp (Date & Time). */
 	private Timestamp timeStamp;
 
 	/**
-	 * Default Constructor
+	 * Default Constructor.
 	 */
 	public UserVisitLog() {
 	}
 
 	/**
-	 * Fully loaded constructor
+	 * Fully loaded constructor.
 	 *
 	 * @param visitorId
+	 *            the visitor id
 	 * @param visitedId
+	 *            the visited id
 	 * @param timeStamp
+	 *            the time stamp
 	 */
 	public UserVisitLog(final int visitorId, final int visitedId, final Timestamp timeStamp) {
 		setVisitor(new User(visitorId));
@@ -74,27 +70,27 @@ public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 	}
 
 	/**
-	 * Getter for the ID field
+	 * Getter for the ID field.
 	 *
-	 * @return
+	 * @return the id
 	 */
 	public int getId() {
 		return this.id;
 	}
 
 	/**
-	 * Getter for timestamp field
+	 * Getter for timestamp field.
 	 *
-	 * @return
+	 * @return the time stamp
 	 */
 	public Timestamp getTimeStamp() {
 		return this.timeStamp;
 	}
 
 	/**
-	 * Getter for Visited User field
+	 * Getter for Visited User field.
 	 *
-	 * @return
+	 * @return the visited user
 	 */
 	public User getVisitedUser() {
 		return this.visitedUser;
@@ -104,16 +100,16 @@ public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 	 * Wrapper method to get the visited user id directly from the visited user
 	 * object.
 	 *
-	 * @return
+	 * @return the visited user id
 	 */
 	public int getVisitedUserId() {
 		return getVisitedUser().getId();
 	}
 
 	/**
-	 * Getter for Visitor field
+	 * Getter for Visitor field.
 	 *
-	 * @return
+	 * @return the visitor
 	 */
 	public User getVisitor() {
 		return this.visitor;
@@ -123,7 +119,7 @@ public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 	 * Wrapper method to get the Visitor user id directly from the visitor
 	 * object.
 	 *
-	 * @return
+	 * @return the visitor user id
 	 */
 	public int getVisitorUserId() {
 		return getVisitor().getId();
@@ -145,7 +141,17 @@ public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 	}
 
 	/**
-	 * Map method to be used from the JDBI library
+	 * Map method to be used from the JDBI library.
+	 *
+	 * @param i
+	 *            the i
+	 * @param rs
+	 *            the rs
+	 * @param context
+	 *            the context
+	 * @return the user visit log
+	 * @throws SQLException
+	 *             the SQL exception
 	 */
 	public UserVisitLog map(final int i, final ResultSet rs, final StatementContext context) throws SQLException {
 		final UserVisitLog log = new UserVisitLog();
@@ -157,43 +163,49 @@ public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 	}
 
 	/**
-	 * Setter for the ID field
+	 * Setter for the ID field.
 	 *
 	 * @param id
+	 *            the new id
 	 */
 	public void setId(final int id) {
 		this.id = id;
 	}
 
 	/**
-	 * Setter for the timeStamp field
+	 * Setter for the timeStamp field.
 	 *
 	 * @param timeStamp
+	 *            the new time stamp
 	 */
 	public void setTimeStamp(final Timestamp timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 
 	/**
-	 * Setter for Visited user field
+	 * Setter for Visited user field.
 	 *
 	 * @param visitedUser
+	 *            the new visited user
 	 */
 	public void setVisitedUser(final User visitedUser) {
 		this.visitedUser = visitedUser;
 	}
 
 	/**
-	 * Setter for the Visitor field
+	 * Setter for the Visitor field.
 	 *
 	 * @param visitor
+	 *            the new visitor
 	 */
 	public void setVisitor(final User visitor) {
 		this.visitor = visitor;
 	}
 
 	/**
-	 * Convert this object to helpfull String representation
+	 * Convert this object to helpfull String representation.
+	 *
+	 * @return the string
 	 */
 	@Override
 	public String toString() {

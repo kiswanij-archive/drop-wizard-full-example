@@ -36,27 +36,24 @@ import com.yammer.metrics.annotation.Timed;
  * This is the core Bussiness Service required by the assignment , contains : 1-
  * recordVisitLog service "visits/log/{visitor_id}/{visited_id}" 2-
  * getLastVisitors service "visitors/{user}" 3- getAllVisitors
- * all-visitors/{user}
+ * all-visitors/{user}.
  *
  * @author Jalal Kiswani
- *
+ * 
  *         Note : Some method shold be called as POST ot GET , but i have made
  *         all the exposed services in this Resource called using HTTP Get
  *         method for simpler testing prupose by hitting browser URL only.
- *
  */
 @Path("/users")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class UserResource {
 
-	/**
-	 * Instance of UsersFacade
-	 */
+	/** Instance of UsersFacade. */
 	private final UsersFacade facade = UsersFacade.getInstance();
 
 	/**
-	 * Default Constrcutor
+	 * Default Constrcutor.
 	 */
 	public UserResource() {
 	}
@@ -65,9 +62,10 @@ public class UserResource {
 	 * Format the giev List to readable String , which is row on every line
 	 * e.g.(Log[#{log_id},User ({visited_user_id}),User
 	 * ({visitor_user_id}),{time_stamp},{out_dated}])
-	 * 
+	 *
 	 * @param allVisitors
-	 * @return
+	 *            the all visitors
+	 * @return the string
 	 */
 	private String format(final List<UserVisitLog> allVisitors) {
 		final String separtor = LocalRegistry.getConfigurations().getOutputSeprator();
@@ -81,10 +79,11 @@ public class UserResource {
 	}
 
 	/**
-	 * Get list of all the user visits
-	 * 
+	 * Get list of all the user visits.
+	 *
 	 * @param userId
-	 * @return
+	 *            the user id
+	 * @return the all visitors
 	 */
 	@GET
 	@Timed
@@ -98,9 +97,10 @@ public class UserResource {
 	 * Get String contains the last 10 valid visits for the given user. The
 	 * visit is considered value if its not outDated(not registred before 10
 	 * Days)
-	 * 
+	 *
 	 * @param userId
-	 * @return
+	 *            the user id
+	 * @return the last visitors
 	 */
 	@GET
 	@Timed
@@ -111,11 +111,13 @@ public class UserResource {
 	}
 
 	/**
-	 * Add new users visit log record
-	 * 
+	 * Add new users visit log record.
+	 *
 	 * @param visitorId
+	 *            the visitor id
 	 * @param visitedId
-	 * @return
+	 *            the visited id
+	 * @return the response
 	 */
 	@GET
 	@Timed

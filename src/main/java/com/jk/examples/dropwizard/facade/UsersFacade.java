@@ -35,16 +35,15 @@ import com.jk.examples.dropwizard.util.LocalRegistry;
  *
  */
 public class UsersFacade {
-	/**
-	 * Singleton instance of this class
-	 */
+	
+	/** Singleton instance of this class. */
 	private static UsersFacade instance;
 
 	/**
 	 * Singleton instance getter of this class. Also , this method is the first
 	 * place where the instance in constructor in the first call
-	 * 
-	 * @return
+	 *
+	 * @return single instance of UsersFacade
 	 */
 	public static UsersFacade getInstance() {
 		if (UsersFacade.instance == null) {
@@ -53,19 +52,17 @@ public class UsersFacade {
 		return UsersFacade.instance;
 	}
 
-	/**
-	 * instance of users dao
-	 */
+	/** instance of users dao. */
 	private final UsersDao dao;
 
 	/**
 	 * Thread Pool to be used executing the recordVisitLog to avoid any overhead
-	 * on the server and to avoid any delay in the user experience
+	 * on the server and to avoid any delay in the user experience.
 	 */
 	ExecutorService pool;
 
 	/**
-	 * Private construtor , this method init the pool and the users dao
+	 * Private construtor , this method init the pool and the users dao.
 	 */
 	private UsersFacade() {
 		this.dao = LocalRegistry.getDbi().onDemand(UsersDao.class);
@@ -74,8 +71,9 @@ public class UsersFacade {
 
 	/**
 	 * Wrapper method to add the user to the database by calling dao.addUser
-	 * 
+	 *
 	 * @param user
+	 *            the user
 	 */
 	public void addUser(final User user) {
 		this.dao.addUser(user);
@@ -83,19 +81,21 @@ public class UsersFacade {
 
 	/**
 	 * Wrapper method for finding a user by id , it calls dao.findUser
-	 * 
+	 *
 	 * @param userId
-	 * @return
+	 *            the user id
+	 * @return the user
 	 */
 	public User findUser(final int userId) {
 		return this.dao.findUser(userId);
 	}
 
 	/**
-	 * Wrapper method to get all the visitors for given use id
-	 * 
+	 * Wrapper method to get all the visitors for given use id.
+	 *
 	 * @param userId
-	 * @return
+	 *            the user id
+	 * @return the all visitors
 	 */
 	public List<UserVisitLog> getAllVisitors(final int userId) {
 		return this.dao.getAllVisitors(userId);
@@ -106,9 +106,10 @@ public class UsersFacade {
 	 * getLastVisitor method on the UsersDao which returns the last 10 visits
 	 * for this user , then it remove the out dated logs . It checks for the
 	 * outdated state by calling log.isOutDated()
-	 * 
+	 *
 	 * @param userId
-	 * @return
+	 *            the user id
+	 * @return the last visitors
 	 */
 	public List<UserVisitLog> getLastVisitors(final int userId) {
 		final List<UserVisitLog> visitors = this.dao.getLastVisitors(userId);
@@ -125,8 +126,9 @@ public class UsersFacade {
 	/**
 	 * This method records the visit log for a user. This method is called from
 	 * within the thread pool for better performance
-	 * 
+	 *
 	 * @param log
+	 *            the log
 	 */
 	public void recordVisitLog(final UserVisitLog log) {
 		final Runnable runnable = new Runnable() {

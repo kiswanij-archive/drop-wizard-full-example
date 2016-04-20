@@ -1,3 +1,18 @@
+/*
+ * Copyright 2002-2016 Jalal Kiswani.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.jk.examples.dropwizard.beans;
 
 import java.sql.ResultSet;
@@ -14,9 +29,9 @@ import com.jk.examples.dropwizard.util.LocalRegistry;
  * This class encapsulates the Users Visits info , it contains the Id , Visitor
  * , Visited and visit time stamp. This class implements the ResultSetMapper
  * interface to be usefull when used with the JDBI library
- * 
+ *
  * @author Jalal Kiswani
- * 
+ *
  */
 public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 	/**
@@ -47,12 +62,12 @@ public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 
 	/**
 	 * Fully loaded constructor
-	 * 
+	 *
 	 * @param visitorId
 	 * @param visitedId
 	 * @param timeStamp
 	 */
-	public UserVisitLog(int visitorId, int visitedId, Timestamp timeStamp) {
+	public UserVisitLog(final int visitorId, final int visitedId, final Timestamp timeStamp) {
 		setVisitor(new User(visitorId));
 		setVisitedUser(new User(visitedId));
 		setTimeStamp(timeStamp);
@@ -60,90 +75,35 @@ public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 
 	/**
 	 * Getter for the ID field
-	 * 
+	 *
 	 * @return
 	 */
 	public int getId() {
-		return id;
-	}
-
-	/**
-	 * Setter for the ID field
-	 * 
-	 * @param id
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	/**
-	 * Getter for Visitor field
-	 * 
-	 * @return
-	 */
-	public User getVisitor() {
-		return visitor;
-	}
-
-	/**
-	 * Setter for the Visitor field
-	 * 
-	 * @param visitor
-	 */
-	public void setVisitor(User visitor) {
-		this.visitor = visitor;
-	}
-
-	/**
-	 * Getter for Visited User field
-	 * 
-	 * @return
-	 */
-	public User getVisitedUser() {
-		return visitedUser;
-	}
-
-	/**
-	 * Setter for Visited user field
-	 * 
-	 * @param visitedUser
-	 */
-	public void setVisitedUser(User visitedUser) {
-		this.visitedUser = visitedUser;
+		return this.id;
 	}
 
 	/**
 	 * Getter for timestamp field
-	 * 
+	 *
 	 * @return
 	 */
 	public Timestamp getTimeStamp() {
-		return timeStamp;
+		return this.timeStamp;
 	}
 
 	/**
-	 * Setter for the timeStamp field
-	 * 
-	 * @param timeStamp
-	 */
-	public void setTimeStamp(Timestamp timeStamp) {
-		this.timeStamp = timeStamp;
-	}
-
-	/**
-	 * Wrapper method to get the Visitor user id directly from the visitor
-	 * object.
-	 * 
+	 * Getter for Visited User field
+	 *
 	 * @return
 	 */
-	public int getVisitorUserId() {
-		return getVisitor().getId();
+	public User getVisitedUser() {
+		return this.visitedUser;
 	}
 
 	/**
 	 * Wrapper method to get the visited user id directly from the visited user
 	 * object.
-	 * 
+	 *
 	 * @return
 	 */
 	public int getVisitedUserId() {
@@ -151,10 +111,44 @@ public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 	}
 
 	/**
+	 * Getter for Visitor field
+	 *
+	 * @return
+	 */
+	public User getVisitor() {
+		return this.visitor;
+	}
+
+	/**
+	 * Wrapper method to get the Visitor user id directly from the visitor
+	 * object.
+	 *
+	 * @return
+	 */
+	public int getVisitorUserId() {
+		return getVisitor().getId();
+	}
+
+	/**
+	 * This method checks if this visit is expired . The Page is considered
+	 * expired if its recorded for more than {VisitListMaxDays} variable which
+	 * is defined in AssignmentConfigurations#getVisitListMaxDays() method
+	 *
+	 * @return wheather outdated or not
+	 */
+	public boolean isOutDated() {
+		final DateTime timeStamp = new DateTime(getTimeStamp());
+		final DateTime expiryDate = timeStamp.plusDays(LocalRegistry.getConfigurations().getVisitListMaxDays());
+
+		final DateTime now = new DateTime();
+		return now.isAfter(expiryDate);
+	}
+
+	/**
 	 * Map method to be used from the JDBI library
 	 */
-	public UserVisitLog map(int i, ResultSet rs, StatementContext context) throws SQLException {
-		UserVisitLog log = new UserVisitLog();
+	public UserVisitLog map(final int i, final ResultSet rs, final StatementContext context) throws SQLException {
+		final UserVisitLog log = new UserVisitLog();
 		log.setId(rs.getInt("id"));
 		log.setVisitor(new User(rs.getInt("visitor_user_id")));
 		log.setVisitedUser(new User(rs.getInt("visited_user_id")));
@@ -163,18 +157,39 @@ public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 	}
 
 	/**
-	 * This method checks if this visit is expired . The Page is considered
-	 * expired if its recorded for more than {VisitListMaxDays} variable which
-	 * is defined in AssignmentConfigurations#getVisitListMaxDays() method
-	 * 
-	 * @return wheather outdated or not
+	 * Setter for the ID field
+	 *
+	 * @param id
 	 */
-	public boolean isOutDated() {
-		DateTime timeStamp = new DateTime(getTimeStamp());
-		DateTime expiryDate = timeStamp.plusDays(LocalRegistry.getConfigurations().getVisitListMaxDays());
+	public void setId(final int id) {
+		this.id = id;
+	}
 
-		DateTime now = new DateTime();
-		return now.isAfter(expiryDate);
+	/**
+	 * Setter for the timeStamp field
+	 *
+	 * @param timeStamp
+	 */
+	public void setTimeStamp(final Timestamp timeStamp) {
+		this.timeStamp = timeStamp;
+	}
+
+	/**
+	 * Setter for Visited user field
+	 *
+	 * @param visitedUser
+	 */
+	public void setVisitedUser(final User visitedUser) {
+		this.visitedUser = visitedUser;
+	}
+
+	/**
+	 * Setter for the Visitor field
+	 *
+	 * @param visitor
+	 */
+	public void setVisitor(final User visitor) {
+		this.visitor = visitor;
 	}
 
 	/**
@@ -182,7 +197,7 @@ public class UserVisitLog implements ResultSetMapper<UserVisitLog> {
 	 */
 	@Override
 	public String toString() {
-		StringBuffer buf = new StringBuffer("Log[");
+		final StringBuffer buf = new StringBuffer("Log[");
 		buf.append(getId());
 		buf.append(",");
 		buf.append(getVisitedUser());

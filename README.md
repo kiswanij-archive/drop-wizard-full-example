@@ -45,7 +45,7 @@ Where the first number is the Log Id, the second number the visited user id , th
 5. In your browser address bar  , type : **http://localhost:8080/users/all-visitors/1** , where this will show the full list of the user visitors with the above informations , for debugging and testing purposes.
 
 
-##Available Actions: 
+## Available Actions: 
 ### Admin : 
 	1. /admin/db/create   : Create new database structure as scripted in create-db.sql
 	2. /admin/db/drop : Drop the database structure as scripted in drop-db.sql
@@ -58,7 +58,7 @@ Where the first number is the Log Id, the second number the visited user id , th
 		show the visitors NON-Expired top ten visitors list to the user with id {user}
 	3. /users/all-visitors/{user}
 		Show all visitors for the user with id #{user} with all there statuses  including outdated 			and none outdated.
-###Test: 
+### Test: 
 	1./test/create/users/{users_count}/{days}/{visits_per_user} : 
 	Create mock user records for {user_count} users , and create mock visits with {visits_per_user} 	visits , and make the visit time random between today and (today-{days})
 

@@ -45,7 +45,10 @@ public class ExampleService extends Service<ExampleConfigurations> {
 	 * @throws Exception
 	 *             the exception
 	 */
-	public static void main(final String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
+		if(args.length==0) {
+			args=new String[] {"server","config.yml"};
+		}
 		new ExampleService().run(args);
 	}
 
@@ -58,7 +61,7 @@ public class ExampleService extends Service<ExampleConfigurations> {
 	 */
 	@Override
 	public void initialize(final Bootstrap<ExampleConfigurations> bootstrap) {
-		bootstrap.setName("truecaller-assignment");
+		bootstrap.setName("drop-wizard example");
 	}
 
 	/**

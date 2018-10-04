@@ -1,0 +1,15 @@
+URL's:
+http://localhost:8080/admin/db/clean
+http://localhost:8080/admin/db/create
+http://localhost:8080/admin/db/drop
+http://localhost:8080/test/create/users/{users_count}/{days}/{visits_per_user}
+http://localhost:8080/users/all-visitors/{user}
+http://localhost:8080/users/visitors/{user}
+http://localhost:8080/users/visits/log/{visitor_id}/{visited_id}
+
+
+Examples:
+http://localhost:8080/test/create/users/100/300/500
+http://localhost:8080/users/all-visitors/1
+http://localhost:8080/users/visitors/1
+http://localhost:8080/users/visits/log/1/1
